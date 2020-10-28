@@ -53,7 +53,7 @@ io.on('connection', (socket) => {
       return callback('Profanity is not allowed.');
     }
 
-    io.to(user.room).emit('receiveMessage', generateMessage(user.username, messageFromClient));
+    io.to(user.room).emit('receiveMessage', generateMessage(messageFromClient, user.username));
     return callback('Message delivered.');
   });
 
